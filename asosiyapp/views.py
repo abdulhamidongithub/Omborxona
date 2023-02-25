@@ -24,7 +24,15 @@ class MahsulotlarView(View):
             sotuvchi = Sotuvchi.objects.filter(user=request.user)[0]
         )
         return redirect('mahsulotlar')
-
+    
+class ClientView(View):
+    def get(self, request):
+        data = {
+            'clientlar': Client.objects.filter(sotuvchi__user=request.user)
+        }
+        return render(request, 'clients.html', data)
+    
+    
 class ProductDeleteView(View):
     def get(self, request, pk):
         if request.user.is_authenticated:
