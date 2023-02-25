@@ -28,7 +28,7 @@ class MahsulotlarView(View):
 class ClientView(View):
     def get(self, request):
         data = {
-            'clientlar': Client.objects.filter(sotuvchi__user=request.user)
+            'clientlar': Mijoz.objects.filter(sotuvchi__user=request.user)
         }
         return render(request, 'clients.html', data)
     
