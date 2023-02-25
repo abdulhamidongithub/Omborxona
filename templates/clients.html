@@ -138,14 +138,16 @@
                         </tr>
                     </thead>
                     <tbody>
+                      {% for i in clientlar %}
                         <tr>
-                            <th scope="row">1.</th>
-                            <td>Ali</td>
-                            <td>Baraka</td>
-                            <td>+998911115555</td>
-                            <td>Farg'ona markazi, Askiya</td>
+                            <th scope="row">{{forloop.counter}}.</th>
+                            <td>{{i.ism}}</td>
+                            <td>{{i.nom}}</td>
+                            <td>{{i.tel}}</td>
+                            <td>{{i.manzil}}</td>
                             <td><a href="#"><button type="submit" class="btn btn-danger" data-toggle="modal">Tahrirlash</button></a></td>
                         </tr>
+                      {% endfor %}
                     </tbody>
                 </table>
             </div>
