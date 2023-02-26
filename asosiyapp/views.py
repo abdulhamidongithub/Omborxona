@@ -5,14 +5,18 @@ from .models import *
 
 class BolimlarView(View):
     def get(self, request):
-        return render(request, 'bulimlar.html')
+        if request.user.is_authenticated:
+            return render(request, 'bulimlar.html')
+        return redirect("login")
 
 class MahsulotlarView(View):
     def get(self, request):
-        data = {
-            'mahsulotlar': Mahsulot.objects.filter(sotuvchi__user=request.user)
-        }
-        return render(request, 'products.html', data)
+        if request.user.is_authenticated:
+            data = {
+                'mahsulotlar': Mahsulot.objects.filter(sotuvchi__user=request.user)
+            }
+            return render(request, 'products.html', data)
+        return redirect("login")
 
     def post(self, request):
         Mahsulot.objects.create(
@@ -21,7 +25,7 @@ class MahsulotlarView(View):
             miqdor = request.POST.get('pr_amount'),
             narx = request.POST.get('pr_price'),
             olchov = request.POST.get('pr_olchov'),
-            sotuvchi = Sotuvchi.objects.filter(user=request.user)[0]
+            sotuvchi = Sotuvchi.objects.get(user=request.user)
         )
         return redirect('mahsulotlar')
     
@@ -31,7 +35,17 @@ class ClientView(View):
             'clientlar': Mijoz.objects.filter(sotuvchi__user=request.user)
         }
         return render(request, 'clients.html', data)
-    
+
+    def post(self, request):
+        Mijoz.objects.create(
+            nom = request.POST.get('client_shop'),
+            ism = request.POST.get('client_name'),
+            tel = request.POST.get('client_phone'),
+            manzil = request.POST.get('client_address'),
+            sotuvchi = Sotuvchi.objects.get(user=request.user)
+        )
+        return redirect('clientlar')
+
     
 class ProductDeleteView(View):
     def get(self, request, pk):
