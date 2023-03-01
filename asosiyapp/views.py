@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.views import View
 from .models import *
 
-
 class BolimlarView(View):
     def get(self, request):
         if request.user.is_authenticated:

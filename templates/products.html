@@ -139,10 +139,8 @@
                             <td>{{mahsulot.narx}} so'm</td>
                             <td>{{mahsulot.miqdor}} {{mahsulot.olchov}}</td>
                             <td>{{mahsulot.kelgan_sana}}</td>
-                            {% if request.user.is_staff %}
-                            <td><a href="/bolimlar/pr_update/{{mahsulot.id}}/"><button type="submit" class="btn btn-danger" data-toggle="modal">Tahrirlash</button></a></td>
+                            <td><a href="/bolimlar/pr_update/{{mahsulot.id}}/"><button type="button" class="btn btn-warning" data-toggle="modal">Tahrirlash</button></a></td>
                             <td><a href="/bolimlar/pr_delete/{{mahsulot.id}}/"><button type="button" class="btn btn-danger">O'chirish</button></a></td>
-                            {% endif %}
                         </tr>
                     {% endfor %}
                     </tbody>
