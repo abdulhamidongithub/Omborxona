@@ -168,13 +168,20 @@
           </div>
     
           <!-- Modal body -->
-          <form action="#" id="new-product-form" method="post">{% csrf_token %}
-            <div class="modal-body">
-              <label for="product">Product:</label>
-             <input type="datetime-local" name="sana" placeholder="Sana" id="product" class="form-control" required>
+          <form id="new-product-form" method="post">{% csrf_token %}
+            <label for="mahsulot">Product:</label>
+                <select name="pr" class="form-control" id="mahsulot">
+                    {% for mahsulot in mahsulotlar %}
+                    <option value="{{mahsulot.id}}">{{mahsulot.nom}}({{mahsulot.brend}})</option>
+                    {% endfor %}
+                </select>
                 <br>
-              <label for="client">Client:</label>
-                <input type="datetime-local" name="sana" placeholder="Sana" id="client" class="form-control" required>
+                <label for="mijoz">Client:</label>
+                <select name="m" class="form-control" id="mijoz">
+                    {% for mijoz in mijozlar %}
+                    <option value="{{mijoz.id}}">{{mijoz.ism}}({{mijoz.nom}})</option>
+                    {% endfor %}
+                </select>
               <br>
               <label for="sana">Sana:</label>
               <input type="datetime-local" name="sana" placeholder="Sana" id="sana" class="form-control" required>
@@ -191,12 +198,10 @@
                 <label for="tolandi">To'landi:</label>
               <input type="number" name="tolandi" placeholder="To'landi" id="tolandi" class="form-control" required>
               <br>
-            </div>
-    
           <!-- Modal footer -->
           <div class="modal-footer">
-            <button type="submit" class="btn btn-success">Qo`shish</button>
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Yopish</button>
+            <button type="submit" class="btn btn-success">Add</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Back</button>
         </div>
       </form>
     
