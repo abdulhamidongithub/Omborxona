@@ -78,3 +78,5 @@ class MahsulotUpdateView(View):
         )
         return redirect('/bolimlar/mahsulotlar/')
 
+
+

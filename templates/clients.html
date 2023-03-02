@@ -37,7 +37,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Home</a>
+        <a href="/bolimlar/" class="nav-link">Home</a>
       </li>
     </ul>
 
@@ -52,11 +52,6 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../index.html" class="brand-link">
-      <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Online Ombor</span>
-    </a>
-
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
@@ -72,13 +67,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/clients/" class="nav-link active">
+            <a href="/bolimlar/clientlar/" class="nav-link active">
               <i class="nav-icon far fa-circle text-danger"></i>
               <p class="text">Clients</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="/goods/" class="nav-link">
+            <a href="/bolimlar/mahsulotlar/" class="nav-link">
               <i class="nav-icon far fa-circle text-info"></i>
               <p>Products</p>
             </a>
@@ -101,7 +96,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-             <li class="breadcrumb-item"><a href="#">Home</a></li>
+             <li class="breadcrumb-item"><a href="/bolimlar/">Home</a></li>
               <li class="breadcrumb-item active">Clients</li>
               <li class="breadcrumb-item"><a href="/logout/">Logout</a></li>
             </ol>
@@ -114,18 +109,18 @@
         <div class="card card-dark">
             <div class="card-header border-0">
                 <div class="d-flex justify-content-between">
-                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Mijoz qo'shish</button>
+                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add new client</button>
                 </div>
             </div>
             <div class="card-body">
                 <table class="table" style="text-align: center;">
                     <thead>
                         <tr>
-                            <th scope="col" style="width: 15px">T/r</th>
-                            <th scope="col" style="width: 255px; text-align: center;">FIO</th>
-                            <th scope="col" style="text-align: center;">Do'kon nomi</th>
-                            <th scope="col" style="text-align: center;">Telefon raqami</th>
-                            <th scope="col" style="text-align: center;">Manzili</th>
+                            <th scope="col" style="width: 15px">Id</th>
+                            <th scope="col" style="width: 255px; text-align: center;">Full name</th>
+                            <th scope="col" style="text-align: center;">Name of the shop</th>
+                            <th scope="col" style="text-align: center;">Phone number</th>
+                            <th scope="col" style="text-align: center;">Address</th>
                             <th scope="col" style="text-align: center;"></th>
                         </tr>
                     </thead>
@@ -137,7 +132,8 @@
                             <td>{{i.nom}}</td>
                             <td>{{i.tel}}</td>
                             <td>{{i.manzil}}</td>
-                            <td><a href="#"><button type="submit" class="btn btn-danger" data-toggle="modal">Tahrirlash</button></a></td>
+                            <td><a href="#"><button type="submit" class="btn btn-warning" data-toggle="modal">Update</button></a></td>
+                            <td><a href="#"><button type="submit" class="btn btn-danger" data-toggle="modal">Delete</button></a></td>
                         </tr>
                       {% endfor %}
                     </tbody>
@@ -152,7 +148,7 @@
     
           <!-- Modal Header -->
           <div class="modal-header bg-dark">
-            <h4 class="modal-title">Yangi mijoz</h4>
+            <h4 class="modal-title">New client</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
     

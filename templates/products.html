@@ -40,7 +40,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Home</a>
+        <a href="/bolimlar/" class="nav-link">Home</a>
       </li>
     </ul>
 
@@ -66,19 +66,19 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-header">Menu</li>
           <li class="nav-item">
-            <a href="stats" class="nav-link">
+            <a href="/stats/" class="nav-link">
               <i class="nav-icon far fa-circle text-warning"></i>
               <p>Statistics</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="/clients/" class="nav-link">
+            <a href="/bolimlar/clientlar/" class="nav-link">
               <i class="nav-icon far fa-circle text-danger"></i>
               <p class="text">Clients</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="goods" class="nav-link active">
+            <a href="/bolimlar/mahsulotlar/" class="nav-link active">
               <i class="nav-icon far fa-circle text-info"></i>
               <p>Products</p>
             </a>
@@ -101,9 +101,9 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="stats">Home</a></li>
-              <li class="breadcrumb-item active">Clients</li>
-                <li class="breadcrumb-item"><a href="logout">Logout</a></li>
+              <li class="breadcrumb-item"><a href="/bolimlar/">Home</a></li>
+              <li class="breadcrumb-item active">Products</li>
+                <li class="breadcrumb-item"><a href="/logout/">Logout</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -114,19 +114,19 @@
         <div class="card card-dark">
             <div class="card-header border-0">
                 <div class="d-flex justify-content-between">
-                  <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Maxsulot qo'shish</button>
+                  <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add new product</button>
                 </div>
             </div>
             <div class="card-body">
                 <table class="table" style="text-align: center;">
                     <thead>
                         <tr>
-                            <th scope="col" style="width: 15px">T/r</th>
-                            <th scope="col" style="width: 255px; text-align: center;">Nomi</th>
-                            <th scope="col" style="text-align: center;">Brendi</th>
-                            <th scope="col" style="text-align: center;">Narxi</th>
-                            <th scope="col" style="text-align: center;">Miqdori</th>
-                            <th scope="col" style="text-align: center;">Kelgan sanasi</th>
+                            <th scope="col" style="width: 15px">Id</th>
+                            <th scope="col" style="width: 255px; text-align: center;">Name</th>
+                            <th scope="col" style="text-align: center;">Brand</th>
+                            <th scope="col" style="text-align: center;">Price</th>
+                            <th scope="col" style="text-align: center;">Amount</th>
+                            <th scope="col" style="text-align: center;">Received date</th>
                             <th scope="col" style="text-align: center;"></th>
                         </tr>
                     </thead>
@@ -139,8 +139,8 @@
                             <td>{{mahsulot.narx}} so'm</td>
                             <td>{{mahsulot.miqdor}} {{mahsulot.olchov}}</td>
                             <td>{{mahsulot.kelgan_sana}}</td>
-                            <td><a href="/bolimlar/pr_update/{{mahsulot.id}}/"><button type="button" class="btn btn-warning" data-toggle="modal">Tahrirlash</button></a></td>
-                            <td><a href="/bolimlar/pr_delete/{{mahsulot.id}}/"><button type="button" class="btn btn-danger">O'chirish</button></a></td>
+                            <td><a href="/bolimlar/pr_update/{{mahsulot.id}}/"><button type="button" class="btn btn-warning" data-toggle="modal">Update</button></a></td>
+                            <td><a href="/bolimlar/pr_delete/{{mahsulot.id}}/"><button type="button" class="btn btn-danger">Delete</button></a></td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -156,7 +156,7 @@
     
           <!-- Modal Header -->
           <div class="modal-header bg-dark">
-            <h4 class="modal-title">Yangi mahsulot</h4>
+            <h4 class="modal-title">New product</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
     
