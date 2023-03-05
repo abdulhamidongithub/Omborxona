@@ -8,6 +8,7 @@ class Statistika(models.Model):
     miqdor = models.PositiveSmallIntegerField(default=1)
     jami = models.PositiveSmallIntegerField()
     tolandi = models.PositiveSmallIntegerField()
+    sana = models.DateTimeField(auto_now_add=True, null=True)
     nasiya = models.PositiveSmallIntegerField(default=0)
     sotuvchi = models.ForeignKey(Sotuvchi, on_delete=models.SET_NULL, null=True)
 
