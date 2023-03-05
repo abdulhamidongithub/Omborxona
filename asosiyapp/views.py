@@ -83,7 +83,7 @@ class ClientDeleteView(View):
         if request.user.is_authenticated:
             hozirgi_sotuvchi = Sotuvchi.objects.get(user=request.user)
             client = Mijoz.objects.get(id=pk)
-            if client.sotuvchi == hozirgi_sotuvchi and request.user.is_staff:
+            if client.sotuvchi == hozirgi_sotuvchi:
                 client.delete()
             return redirect('clientlar')
         return redirect('login')
