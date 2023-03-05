@@ -78,5 +78,13 @@ class MahsulotUpdateView(View):
         )
         return redirect('/bolimlar/mahsulotlar/')
 
-
+class ClientDeleteView(View):
+    def get(self, request, pk):
+        if request.user.is_authenticated:
+            hozirgi_sotuvchi = Sotuvchi.objects.get(user=request.user)
+            client = Client.objects.get(id=pk)
+            if client.sotuvchi == hozirgi_sotuvchi and request.user.is_staff:
+                client.delete()
+            return redirect('clientlar')
+        return redirect('login')
 
